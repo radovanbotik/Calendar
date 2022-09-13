@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Montserrat&display=swap");
+
+:root {
+  --font-main: "Fira Sans", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+
+  --red: #fb3e3f;
+  --black: #070000;
+  --yellow: #f5a24f;
+  --white: #f2f6fb;
+  --green: #4baa97;
+
+  --light: #f5e4df;
+  --light-1: #e3d1cb;
+
+  --dark: #51493e;
+  --dark-1: #39342c;
+}
+/* google icons */
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 2, "opsz" 48;
+}
+/* general styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--dark);
+  background-color: var(--dark);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+}
+li {
+  display: grid;
+  place-items: center;
+  /* border-radius: 20px; */
+}
+
+.calendar-holder {
+  background-color: var(--light);
+  aspect-ratio: 1;
+  height: 70vh;
+  min-width: 350px;
+
+  padding: 1em;
+  border-radius: 2px;
+  box-shadow: 2px 2px 20px 1px var(--dark-1);
+
+  display: grid;
+  grid-template-rows: min-content auto;
+}
+
+.months-holder {
+  padding: 1em 0em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+.chevron {
+  cursor: pointer;
+}
+.days-holder {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.day-number {
+  cursor: pointer;
+  /* font-size: 0.75rem; */
+}
+.day-number:hover {
+  background-color: var(--dark-1);
+  color: var(--white);
+  transform: scale(1.2);
+}
+.day-number:active {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.active {
+  border: 3px solid var(--dark-1);
+}
