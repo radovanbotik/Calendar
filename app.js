@@ -27,3 +27,14 @@ chevronLeft.addEventListener("click", e => {
   translateX(counter);
   console.log(counter);
 });
+
+const date = new Date(2022, 0, 1);
+const days2022 = [];
+for (let i = 1; i <= 365; i++) {
+  days2022.push(new Date(2022, 0, `${i}`));
+}
+const january = days2022.filter(entry => {
+  return entry.getMonth() === 0;
+});
+
+console.log(january);
