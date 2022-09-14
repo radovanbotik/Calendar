@@ -51,7 +51,29 @@ const createDays = () => {
   const daysContainer =
     months[counter].parentElement.parentElement.nextElementSibling
       .nextElementSibling;
+
+  const daysHolder =
+    months[counter].parentElement.parentElement.nextElementSibling;
+
   const currentMonthDays = daysInCurrentMonth()[0];
+  const weekDays = [];
+  for (let i = 0; i <= 6; i++) {
+    weekDays.push(
+      new Date(currentMonthDays[i]).toLocaleString("en-us", {
+        weekday: "short",
+      })
+    );
+  }
+  const weekDaysHTML = weekDays
+    .map(day => {
+      return `
+    <li class="day-name row1">${day}</li>
+    `;
+    })
+    .join("");
+
+  daysHolder.innerHTML = weekDaysHTML;
+
   const daysHTML = currentMonthDays
     .map((day, index) => {
       return `
@@ -59,7 +81,6 @@ const createDays = () => {
     `;
     })
     .join("");
-  console.log(daysHTML);
   daysContainer.innerHTML = daysHTML;
 };
 
@@ -70,7 +91,6 @@ chevronRight.addEventListener("click", e => {
   }
   translateX(counter);
   createDays();
-  console.log(daysInCurrentMonth());
 });
 chevronLeft.addEventListener("click", e => {
   counter--;
@@ -79,7 +99,6 @@ chevronLeft.addEventListener("click", e => {
   }
   translateX(counter);
   createDays();
-  console.log(daysInCurrentMonth());
 });
 
 window.addEventListener("DOMContentLoaded", () => {
