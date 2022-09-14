@@ -33,8 +33,32 @@ const days2022 = [];
 for (let i = 1; i <= 365; i++) {
   days2022.push(new Date(2022, 0, `${i}`));
 }
-const january = days2022.filter(entry => {
-  return entry.getMonth() === 0;
+
+const allmonths = [
+  "january",
+  "february",
+  "march",
+  "april",
+  "may",
+  "june",
+  "july",
+  "august",
+  "september",
+  "october",
+  "november",
+  "december",
+];
+
+const wholeYear = allmonths.map((month, index) => {
+  return (month = new Array(
+    days2022.filter(entry => {
+      return entry.getMonth() === index;
+    })
+  ));
 });
 
-console.log(january);
+const checkCurrentMonth = () => {
+  const currentMonth = new Date().getMonth();
+  console.log(wholeYear[currentMonth]);
+};
+checkCurrentMonth();
